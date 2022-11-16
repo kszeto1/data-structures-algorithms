@@ -1,0 +1,19 @@
+what is a data structure?
+
+
+RAM - where all variables/code is stored
+- measured in bytes
+- typically 8 GIGAbytes (GB)
+- 1 byte = 8 bits
+- bit is a position that stores digit, either a 0 or 1
+
+integers typically represented as 4 bytes (32 bits)
+
+[1, 3, 5] -> 
+1 -> thirty-two zeroes and a 1 and stored into RAM
+
+arrays are stored contiguously in RAM, meaning the elements are stored next to either.
+arrays are simplest data structure
+integers - addresses incremented by 4 byte
+ASCII characters - addresses incremented by 1 byte
+
