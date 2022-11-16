@@ -1,5 +1,5 @@
 what is a data structure?
-
+- a way of structuring data inside of RAM
 
 RAM - where all variables/code is stored
 - measured in bytes
