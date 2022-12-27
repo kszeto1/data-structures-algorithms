@@ -1,0 +1,10 @@
+arrays are contiguous pieces of data stored contiguously in RAM (ie each element in the array is stored next to each other)
+-reading/writing from an array
+    -reading
+        - done in constant time because when we know the index of a value, we can find that value by going to that index in RAM (oversimplified)
+    -writing
+        - limitation of static arrays: fixed size on declaration
+        - python/javascript don't really offer static arrays, b/c they use dynamic arrays
+        - O(1) operation for adding at the end/removing value because we know the position and fixed size of the array
+        - inserting/removing at arbitrary position
+            - beginning: requires shifting all elements to the right/left, after shifting, a value is inserted/removed at the beginning to preserve order of elements. O(n) time complexity
