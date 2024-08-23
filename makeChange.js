@@ -15,38 +15,31 @@ function makeChange(amount) {
   amountStr[1] = Number(amountStr[1].padEnd(2, '0'))
   let res = []
 
-//   const denominations = {
-//     'fiveDollar': 5,
-//     'dollar': 1.00 Dollar
-//      'quarter': 0.25 Quarter
-//      * -> 0.10 Dime
-//      * -> 0.05 Nickel
-//      * -> 0.01 Penny
-//   }
-
     if (Number(amountStr[0]) > 0) {
         res.push(`${amountStr[0]} dollar${amountStr[0] > 1 ? 's' : ''}`)
     }
 
+    function addChange(value, name, pluralName) {
+        const change = Math.floor(remaining / value);
+        res.push(`${change} ${change > 1 ? pluralName : name}`);
+        remaining -= change * value;
+    }
     
     let remaining = Number(amountStr[1])
     while (remaining > 0) {
-        if (remaining >= 25) {
-            const quarterChange = Math.floor(remaining / 25)
-            res.push(`${quarterChange} quarter${quarterChange > 1 ? 's' : ''}`)
-            remaining -= quarterChange * 25
-        } else if (remaining >= 10) {
-            const dimeChange = Math.floor(remaining / 10)
-            res.push(`${dimeChange} dime${dimeChange > 1 ? 's' : ''}`)
-            remaining -= dimeChange * 10
-        } else if (remaining >= 5) {
-            const nickelChange = Math.floor(remaining / 5)
-            res.push(`${nickelChange} nickel${nickelChange > 1 ? 's' : ''}`)
-            remaining -= nickelChange * 5
-        } else if (remaining >= 1) {
-            const pennyChange = Math.floor(remaining / 1)
-            res.push(`${pennyChange} ${pennyChange > 1 ? 'pennies' : 'penny'}`)
-            remaining -= pennyChange;
+        switch (true) {
+            case remaining >= 25:
+                addChange(25, 'quarter', 'quarters');
+                break;
+            case remaining >= 10:
+                addChange(10, 'dime', 'dimes');
+                break;
+            case remaining >= 5:
+                addChange(5, 'nickel', 'nickels');
+                break;
+            case remaining >= 1:
+                addChange(1, 'penny', 'pennies');
+                break;
         }
     }
 
