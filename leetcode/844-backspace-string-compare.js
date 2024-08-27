@@ -29,7 +29,20 @@
 
 // Follow up: Can you solve it in O(n) time and O(1) space?
 
+// Approach: use two queues to store the characters of the strings
+// iterate through the strings and push the characters into the queues if the character is not a backspace
+// if the character is a backspace, pop the last character from the queue
+// if the queues are equal, return true
+// otherwise, return false
+// time complexity O(m + n)
+// O(m + n) space complexity
 
+// to optimize this would require a two pointer approach, but that difficulty is not easy anymore.
+// would probably be a medium difficulty problem
+// approach: use two pointers to traverse through the strings
+// if the character is a # character, increment the count for backspace
+// decrement the backspace count when you find the next valid character
+// time complexity is still O(m + n), but space complexity is O(1)
 /**
  * @param {string} s
  * @param {string} t
