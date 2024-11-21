@@ -70,6 +70,8 @@ var countPairs = function(nums, target) {
 // increment left
 // else decrement right
 // return count
+// time: O(nlogn), sorting takes O(nlogn) time, iterating through nums takes O(n) time
+// space: O(1)
 
 /**
  * @param {number[]} nums
