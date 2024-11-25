@@ -49,7 +49,7 @@
  * @return {number}
  */
 var lengthOfLastWord = function(s) {
-    s = s.trim();
+    s = s.trim(); // technically don't even need to trim, we only increment len if char is not space
     let len = 0;
 
     for (let i = s.length - 1; i >= 0; i--) {
