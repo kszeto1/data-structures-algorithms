@@ -36,6 +36,9 @@ var validPalindrome = function(s) {
 
     while (left < right) {
         if (s[left] !== s[right]) {
+            // if this returns false, we know that the string requires more than one deletion
+            // and would not be a palindrome. if we return at least one true, then we know we need
+            // at most one deletion to make the string a palindrome
             return isPalindrome(s, left + 1, right) || isPalindrome(s, left, right - 1);
         }
         left++;
