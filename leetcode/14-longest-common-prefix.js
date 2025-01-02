@@ -26,7 +26,7 @@
 // approach: start by checking if the first character of the first string exists in all other strings
 // if it does, add it to the prefix.
 // if it doesn't, return the prefix.
-// time complexity: O(n)
+// time complexity: O(n * m) where n is the number of strings and m is the length of the first string
 // space complexity: O(1)
 
 /**
@@ -45,6 +45,31 @@ var longestCommonPrefix = function (strs) {
         }
     }
 
+
+    return prefix;
+};
+
+// without using the every method
+// approach: start by checking if the first character of the first string exists in all other strings
+// if it does, add it to the prefix.
+// if it doesn't, return the prefix.
+// time complexity: O(n * m) where n is the number of strings and m is the length of the first string
+// space complexity: O(len(strs[0])) because the prefix is at most the length of the first string
+
+/**
+ * @param {string[]} strs
+ * @return {string}
+ */
+var longestCommonPrefix = function(strs) {
+    let prefix = "";
+
+    for (let i = 0; i < strs[0].length; i++) {
+        for (const str of strs) {
+            if (i == str.length || str[i] !== strs[0][i]) return prefix;
+        }
+
+        prefix += strs[0][i];
+    }
 
     return prefix;
 };
