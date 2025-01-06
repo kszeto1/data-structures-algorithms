@@ -59,3 +59,26 @@ var uncommonFromSentences = function(s1, s2) {
 
     return res;
 };
+
+// with a Map instead of an object:
+/**
+ * @param {string} s1
+ * @param {string} s2
+ * @return {string[]}
+ */
+var uncommonFromSentences = function(s1, s2) {
+    let words = [...s1.split(' '), ...s2.split(' ')];
+    let counter = new Map();
+
+    for (const word of words) {
+        counter.set(word, (counter.get(word) || 0) + 1);
+    }
+
+    let res = [];
+
+    for (const item of counter[Symbol.iterator]()) {
+        if (item[1] === 1) res.push(item[0]);
+    }
+
+    return res;
+};
